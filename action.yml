@@ -1,0 +1,17 @@
+name: "Knuckles Pull Request Review"
+description: "Adiciona um comentário a uma Pull Request"
+author: "Arthur Lobo"
+
+branding:
+  icon: "message-square"
+  color: "red"
+
+inputs:
+  type:
+    description: "Knuckles Type. Must be `Approved`, `IDK` or `No`"
+    required: true
+    
+
+runs:
+  using: "node20"
+  main: "index.js"
