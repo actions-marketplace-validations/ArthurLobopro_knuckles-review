@@ -1,0 +1,24 @@
+name: Knuckles Review Sample
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  knuckles_review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Knuckles Review
+        if: ${{ github.event.review.state == 'approved' }}
+        uses: ArthurLobopro/knuckles-review@v0.1
+        with:
+          type: "Approved"
+
+      - name: Knuckles Review
+        if: ${{ github.event.review.state == 'changes_requested' }}
+        uses: ArthurLobopro/knuckles-review@v0.1
+        with:
+          type: "IDK"
+
+    
