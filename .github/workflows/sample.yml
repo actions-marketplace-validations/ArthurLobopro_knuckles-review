@@ -8,6 +8,7 @@ jobs:
   knuckles_review:
     permissions: 
       pull-requests: write
+      
     runs-on: ubuntu-latest
 
     env:

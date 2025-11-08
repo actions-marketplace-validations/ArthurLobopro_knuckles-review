@@ -1,5 +1,5 @@
 name: "Knuckles Pull Request Review"
-description: "Adiciona um comentário a uma Pull Request"
+description: "Add a Knuckles gif on pull request review"
 author: "Arthur Lobo"
 
 branding:
@@ -11,7 +11,6 @@ inputs:
     description: "Knuckles Type. Must be `Approved`, `IDK` or `No`"
     required: true
     
-
 runs:
   using: "node20"
   main: "dist/index.js"
