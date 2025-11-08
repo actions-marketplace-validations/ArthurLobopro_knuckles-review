@@ -33,7 +33,7 @@ env:
 ```yml
 - name: Knuckles Review
     if: ${{ github.event.review.state == 'approved' }}
-    uses: ArthurLobopro/knuckles-review@v0.4
+    uses: ArthurLobopro/knuckles-review@v1.0
     with:
         type: "Approved"
 
