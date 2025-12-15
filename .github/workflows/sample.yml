@@ -3,6 +3,8 @@ name: Knuckles Review Sample
 on:
   pull_request_review:
     types: [submitted]
+  pull_request:
+    types: [closed]
 
 jobs:
   knuckles_review:
@@ -16,13 +18,19 @@ jobs:
 
     steps:
       - name: Knuckles Review
-        if: ${{ github.event.review.state == 'approved' }}
+        if: ${{ github.event.pull_request.state == 'closed' && github.event.pull_request.merged != true }}
+        uses: ArthurLobopro/knuckles-review@v1.0
+        with:
+          type: "No"
+
+      - name: Knuckles Review
+        if: ${{ github.event.review.state == 'approved' && github.event.pull_request.state == 'open' }}
         uses: ArthurLobopro/knuckles-review@v1.0
         with:
           type: "Approved"
 
       - name: Knuckles Review
-        if: ${{ github.event.review.state == 'changes_requested' }}
+        if: ${{ github.event.review.state == 'changes_requested' && github.event.pull_request.state == 'open' }}
         uses: ArthurLobopro/knuckles-review@v1.0
         with:
           type: "IDK"
